@@ -89,7 +89,8 @@
         <div class="container" id="lamanjuri">
             Di sini laman Juri
             <h1>Selamat Datang di E-Juri</h1>
-            Selamat datang Bapak/Ibu <b id="namajuritelahlogin">Nama Anda</b>, Anda ditugaskan menjadi juri mata lomba
+            Selamat datang Bapak/Ibu <b id="namajuritelahlogin">Nama Anda</b>, Anda ditugaskan menjadi <b
+                id="peran"></b> mata lomba
             Video Pembelajaran pada jenjang <b id="jenjangtelahlogin">jenjang sekolah</b>.
             <br /><br />
             Di bawah ini ada tabel daftar peserta lomba. Anda tinggal menekan tombol "beri nilai" untuk mengisi skor
@@ -119,16 +120,16 @@
 
                 <label for="namaguru"><b>Silakan Pilih Nama Juri</b></label><br />
                 <select id="namaguru" name="namaguru" style="width:100%;height:30px">
-                    <option id="juri9" value="Wawang B|Koordinator">Wawang B</option>
-                    <option id="juri10" value="Suhyana|SD">Suhyana</option>
-                    <option id="juri1" value="Ade Andriansyah|SD">Ade Andriansyah</option>
-                    <option id="juri2" value="Titin S|SD">Titin S</option>
-                    <option id="juri3" value="Haryanto|SMP">Haryanto</option>
-                    <option id="juri4" value="Biantoro|SMP">Biantoro</option>
-                    <option id="juri5" value="Abdurahman|SMP">Abdurahman</option>
-                    <option id="juri6" value="Joko Sutrisno|TK">Joko Sutrisno</option>
-                    <option id="juri7" value="Mimin Utomo|TK">Mimin Utomo</option>
-                    <option id="juri8" value="Ririn|TK">Ririn</option>
+                    <option id="juri9" value="Wawang B|Koordinator|All">Wawang B</option>
+                    <option id="juri10" value="Suhyana|Koordinator|SD">Suhyana</option>
+                    <option id="juri1" value="Ade Andriansyah|SD|SD">Ade Andriansyah</option>
+                    <option id="juri2" value="Titin S|SD|SD">Titin S</option>
+                    <option id="juri3" value="Haryanto|SMP|SMP">Haryanto</option>
+                    <option id="juri4" value="Biantoro|SMP|SMP">Biantoro</option>
+                    <option id="juri5" value="Abdurahman|Koordinator|SMP">Abdurahman</option>
+                    <option id="juri6" value="Joko Sutrisno|Koordinator|TK">Joko Sutrisno</option>
+                    <option id="juri7" value="Mimin Utomo|TK|TK">Mimin Utomo</option>
+                    <option id="juri8" value="Ririn|TK|TK">Ririn</option>
                 </select>
                 <!-- <label for="kelasguru"><b>Pilih Kelas</b></label><br />
                 <select id="kelasguru" name="kelasguru" onchange="prlogin()" title="Kelas"
@@ -164,24 +165,114 @@
                     onclick="document.getElementById('isipetunjuk').innerHTML='';document.getElementById('modalpetunjuk').style.display='none';"
                     class="close" title="Tutup Form">&times;</span>
             </div>
+
             <div id="isipetunjuk" style="overflow-x: auto;">
 
                 <!-- <iframe src="https://drive.google.com/file/d/1gyIU2BJDQMnc5JBRFDgs4NyVmuDH5Eme/preview" width="640"
                     height="480"></iframe> -->
             </div>
-            <!-- <iframe id="previewvideo" width="94%" height="480"></iframe> -->
-            <form>
 
+            <!-- <iframe id="previewvideo" width="94%" height="480"></iframe> -->
+
+            <form name="formskor" id="formskor" style="display: block;">
+                <fieldset style="display: none;">
+                    //tanggalkirim email namapeserta instansi nip alamatinstansi nohp linkvideo jenjang nowa olehjuri
+                    <input name="email" id="email" style="display: block" />
+                    <input name="namapeserta" id="namapeserta" style="display: block" />
+                    <input name="instansi" id="instansi" style="display: block" />
+                    <input name="nip" id="nip" style="display: block" />
+                    <input name="alamatinstansi" id="alamatinstansi" style="display: block" />
+                    <input name="nohp" id="nohp" style="display: block" />
+                    <input name="linkvideo" id="linkvideo" style="display: block" />
+                    <input name="jenjang" id="jenjang" style="display: block" />
+                    <input name="nowa" id="nowa" style="display: block" />
+                    <input name="olehjuri" id="olehjuri" style="display: block" />
+
+                </fieldset>
+                <fieldset style="background-color: rgb(255, 218, 218);">
+                    <h3 style="text-align: center;">Aspek Penilaian<br />Kesesuaian Konten Video</h3>
+                    Indikator:
+                    <ol style="list-style-type: lower-alpha;">
+                        <li>Kesesuaian Konten video dengan masa pandemi</li>
+                        <li>Kesesuaian konten video dengan narasi</li>
+                        <li>Kesesuaian konten video dengan topik</li>
+                    </ol>
+                    Nilai Skor (Maksimal 25):
+                    <input name="nilai1" id="nilai1" class="classscore" onchange="updateinputskor()"
+                        style="height: 30px;" type="number" min="0" max="25" /><b id="bnilai1"></b>
+                </fieldset>
+                <fieldset style="background-color: rgb(255, 251, 191);">
+                    <h3 style="text-align: center;">Aspek Penilaian<br />Pemecahan Masalah</h3>
+                    Indikator:
+                    <ol style="list-style-type: lower-alpha;">
+                        <li>Inspiratif</li>
+                        <li>Mudah Diterapkan</li>
+                        <li>Hemat Biaya</li>
+                    </ol>
+                    Nilai Skor (Maksimal 30):
+                    <input name="nilai2" id="nilai2" class="classscore" onchange="updateinputskor()"
+                        style="height: 30px;" type="number" min="0" max="30" /><b id="bnilai2"></b>
+                </fieldset>
+                <fieldset style="background-color: rgb(217, 255, 191);">
+                    <h3 style="text-align: center;">Aspek Penilaian<br />Kreatifitas Konten Video</h3>
+                    Indikator:
+                    <ol style="list-style-type: lower-alpha;">
+                        <li>Inovatif</li>
+                        <li>Modifikatif</li>
+                        <li>Adaptif</li>
+                    </ol>
+                    Nilai Skor (Maksimal 35):
+                    <input name="nilai3" id="nilai3" style="height: 30px;" class="classscore"
+                        onchange="updateinputskor()" type="number" min="0" max="35" /><b id="bnilai3"></b>
+                </fieldset>
+                <fieldset style="background-color: rgb(191, 206, 255);">
+                    <h3 style="text-align: center;">Aspek Penilaian<br />Kualitas Video</h3>
+                    Indikator:
+                    <ol style="list-style-type: lower-alpha;">
+                        <li>Kesesuaian Alur</li>
+                        <li>Kualitas Visual</li>
+                        <li>Kualitas Audio</li>
+                        <li>Kesesuaian ketepatan durasi waktu</li>
+                    </ol>
+                    Nilai Skor (Maksimal 10):
+                    <input name="nilai4" id="nilai4" class="classscore" onchange="updateinputskor()"
+                        style="height: 30px;" type="number" min="0" max="10" /><b id="bnilai4"></b>
+                </fieldset><br />
+                <fieldset style="background-color: rgb(191, 206, 255);text-align:center;">
+                    <h3 style="text-align: center;">Skor Akhir</h3>
+                    <input name="total" id="total" style="font-size: large;" disabled />
+                </fieldset>
             </form>
+            <div id="tombolmenilai">
+                <button class="wa" id="inputnilai" onclick="kirimnilai()"><i class="fa fa-paper-plane"></i> Kirim
+                    Skor</button>
+
+                <!-- <button class="wa" id="printformnilai"><i class="fa fa-print"></i> Print</button>
+                <button class="wa" id="pdfformnilai"><i class="fa fa-file-pdf-o"></i> Simpan ke PDF</button> -->
+            </div>
+            <div id="tombolrefreshmenilai">
+                <button class="wa" id="closea"
+                    onclick="document.getElementById('isipetunjuk').innerHTML='';document.getElementById('modalpetunjuk').style.display='none';"><i
+                        class="fa fa-times"></i> Refresh dan Nilai</button>
+
+            </div>
             <form
                 style="border:1px solid black;background-color:black;color:white;position:fixed;bottom:5px;font-size:18px;font-weight:700"
                 title="Tutup"
                 onclick="document.getElementById('isipetunjuk').innerHTML='';document.getElementById('modalpetunjuk').style.display='none';">
                 [&times;] Tutup</form>
         </div>
+        ==&gt;&gt; e-Juri @Created By. Ade Andriansyah 2020 &lt;&lt;==
+        <br /><br />
     </div>
 
     <script src="javascriptnya.js"></script>
+    <script id="rendered-js" src="renderpdf.js"></script>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.min.js">
+    </script>
 </body>
 
 </html>

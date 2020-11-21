@@ -94,7 +94,7 @@ function daftaruntukkoordinator(jenjang){
     /// tabel untuk kordinnator jenjang juri
     var juriSD =["Ade Andriansyah", "Titin S"];
     var juriTK = ["Mimin Utomo","Ririn"];
-    var juriSMP =["Haryanto", "Biantoro"];
+    var juriSMP =["Haryanto", "Priyantoro"];
     var juri1, juri2;
     if(jenjang =="SD"){
         juri1 = juriSD[0];
